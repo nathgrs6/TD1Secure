@@ -1,0 +1,45 @@
+<odoo>
+    <record model="ir.ui.view" id="students_mark_view_form">
+        <field name="name">students.form</field>
+        <field name="model">students.mark</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="mark">
+                <sheet>
+                    <group string="Information">
+                        <field name="subject"/>
+                        <field name="mark"/>
+                        <field name="student_id"/>
+                    </group>
+
+                </sheet>
+            </form>
+
+
+        </field>
+    </record>
+    <record model="ir.ui.view" id="students_mark_view_tree">
+        <field name="name">students.tree</field>
+        <field name="model">students.mark</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="mark">
+                <field name="subject"/>
+                <field name="mark"/>
+                <field name="student_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_students_mark_view">
+     <field name="name">Marks</field>
+     <field name="type">ir.actions.act_window</field>
+     <field name="res_model">students.mark</field>
+     <field name="view_mode">tree,form</field>
+    </record>
+     <menuitem id="students_menu" name="Students"/>
+     <menuitem id="students_training_menu" name="Trainings" parent="students_menu" action="action_students_training_view"/>
+     <menuitem id="students_student_menu" name="Students" parent="students_menu" action="action_students_student_view"/>
+     <menuitem id="students_mark_menu" name="Marks" parent="students_menu" action="action_students_mark_view"/>
+
+</odoo>
